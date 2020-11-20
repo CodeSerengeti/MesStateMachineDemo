@@ -5,6 +5,7 @@ import com.messtatemachine.mes.entity.ProcessStateEnum;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.statemachine.config.EnableStateMachine;
+import org.springframework.statemachine.config.EnableStateMachineFactory;
 import org.springframework.statemachine.config.EnumStateMachineConfigurerAdapter;
 import org.springframework.statemachine.config.builders.StateMachineConfigurationConfigurer;
 import org.springframework.statemachine.config.builders.StateMachineStateConfigurer;
@@ -21,11 +22,16 @@ import java.util.EnumSet;
  * @description :
  */
 @Configuration
-@EnableStateMachine
+//@EnableStateMachine
+@EnableStateMachineFactory
 public class StateMachineConfig extends EnumStateMachineConfigurerAdapter<ProcessStateEnum, ProcessEventEnum> {
 
+    @Override
     public void configure(StateMachineStateConfigurer<ProcessStateEnum, ProcessEventEnum> states) throws Exception {
-        states.withStates().initial(ProcessStateEnum.INIT).states(EnumSet.allOf(ProcessStateEnum.class));
+        states
+                .withStates()
+                .initial(ProcessStateEnum.INIT)
+                .states(EnumSet.allOf(ProcessStateEnum.class));
     }
 
     @Override

@@ -10,22 +10,22 @@ import javax.annotation.Resource;
 
 public class StartupRunner implements CommandLineRunner {
 
-    @Resource
-    StateMachine<ProcessStateEnum, ProcessEventEnum> stateMachine;
+/*    @Resource
+    StateMachine<ProcessStateEnum, ProcessEventEnum> stateMachine;*/
 
     @Override
     public void run(String... args) throws Exception {
-        stateMachine.start();
+/*        stateMachine.start();
         Thread.sleep(20);
         stateMachine.sendEvent(ProcessEventEnum.LOAD_PASS);
         Thread.sleep(20);
         stateMachine.sendEvent(ProcessEventEnum.CUT_PASS);
-        Thread.sleep(20000);
+        Thread.sleep(20);
         stateMachine.sendEvent(ProcessEventEnum.COAT_PASS);
-        Thread.sleep(20000);
+        Thread.sleep(20);
         stateMachine.sendEvent(ProcessEventEnum.EOL_PASS);
-        Thread.sleep(20000);
-        stateMachine.sendEvent(ProcessEventEnum.PACKAGE_PASS);
+        Thread.sleep(20);
+        stateMachine.sendEvent(ProcessEventEnum.PACKAGE_PASS);*/
 
     }
 }
